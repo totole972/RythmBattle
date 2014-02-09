@@ -1,5 +1,6 @@
 package com.Game1.rythmbattle.data.implementations;
 
+import com.Game1.rythmbattle.data.interfaces.IItem;
 import com.Game1.rythmbattle.data.interfaces.IScore;
 
 /**
@@ -19,7 +20,7 @@ public class Score implements IScore {
 
 
     @Override
-    public void updateScore(Item item) {
+    public void updateScore(IItem item) {
 
     }
 
