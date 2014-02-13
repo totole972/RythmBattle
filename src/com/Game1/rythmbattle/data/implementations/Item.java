@@ -24,6 +24,12 @@ public class Item implements IItem {
 	}
 
 	@Override
+	public boolean isTimeout() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
 	public int getTimestamp() {
 		// TODO Auto-generated method stub
 		return 0;

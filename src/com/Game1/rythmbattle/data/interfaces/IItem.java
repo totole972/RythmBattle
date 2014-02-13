@@ -12,6 +12,8 @@ public interface IItem {
     public void stop();
     
     public int getTimeLeft();
+    
+    public boolean isTimeout();
 
     
     public int getTimestamp();
