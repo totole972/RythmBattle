@@ -7,7 +7,7 @@ import com.Game1.rythmbattle.data.implementations.Item;
  */
 public interface IScore {
 
-    public void updateScore(Item item);
-    public void updateScoreonTimeOut();
-    public void saveScore();
+    public void updateScore(IItem item);
+    public int getScore();
+    public void finalizeScore();
 }
