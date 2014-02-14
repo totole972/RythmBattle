@@ -8,5 +8,6 @@ import com.Game1.rythmbattle.data.implementations.Item;
 public interface IScore {
 
     public void updateScore(Item item);
-    public void calculateCombo();
+    public void updateScoreonTimeOut();
+    public void saveScore();
 }
