@@ -5,6 +5,8 @@ import com.Game1.rythmbattle.listener.interfaces.IItemListener;
 
 public class Item implements IItem {
 
+    public static final int TAILLE_MAX = 50; //TODO Modify depending on how the size of an item is determined
+
 	@Override
 	public void start() {
 		// TODO Auto-generated method stub
