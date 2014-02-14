@@ -1,9 +1,41 @@
 package com.Game1.rythmbattle.game.implementations;
 
-import com.Game1.rythmbattle.game.interfaces.IGraphic;
+import android.view.View;
 
-/**
- * Created by totole on 07/02/14.
- */
+import com.Game1.rythmbattle.data.interfaces.IItem;
+import com.Game1.rythmbattle.game.interfaces.IGraphic;
+import com.Game1.rythmbattle.listener.interfaces.IGraphicListener;
+
 public class Graphic implements IGraphic {
+
+	@Override
+	public void setView(View view) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void add(IItem item) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void remove(IItem item, boolean isTouched) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addListener(IGraphicListener listener) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeListener(IGraphicListener listener) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
