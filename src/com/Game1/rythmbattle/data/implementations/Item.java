@@ -1,80 +1,138 @@
 package com.Game1.rythmbattle.data.implementations;
 
+import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Handler;
+
 import com.Game1.rythmbattle.data.interfaces.IItem;
 import com.Game1.rythmbattle.listener.interfaces.IItemListener;
 
 public class Item implements IItem {
 
-	@Override
+	private int timestamp = 0;
+	private int positionX = 0;
+	private int positionY = 0;
+	private int ordre = 0;
+	private int duration = 0;
+	private int taille = 0;
+	
+	private Handler handler;
+	
+	private List<IItemListener> listeners = new ArrayList<IItemListener>();
+	
+	private long globalTimestampStart;
+	
+	private boolean hasStopped;
+	private int timeEllapsed;
+
 	public void start() {
-		// TODO Auto-generated method stub
-
+		handler = new Handler();
+		handler.postDelayed(watchEnd, duration);
+		
+		// On enregistre le timestamp au début
+		globalTimestampStart = new Date().getTime();
 	}
 
-	@Override
 	public void stop() {
-		// TODO Auto-generated method stub
-
+		handler.removeCallbacks(watchEnd);
+		
+		// On met à jour le moment où l'objet a été stopé
+		computeTimeEllapsed();
 	}
-
-	@Override
+	
+	/**
+	 * Retourne le temps restant avant le timeout
+	 */
 	public int getTimeLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(!hasStopped){
+			computeTimeEllapsed();
+		}
+		return duration - timeEllapsed;
 	}
 
-	@Override
+	/**
+	 * Retourne si l'objet est en timeout
+	 */
 	public boolean isTimeout() {
-		// TODO Auto-generated method stub
-		return false;
+		return getTimeLeft() <= 0;
 	}
 
-	@Override
 	public int getTimestamp() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.timestamp;
 	}
 
-	@Override
 	public int getPositionX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.positionX;
 	}
 
-	@Override
 	public int getPositionY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.positionY;
 	}
 
-	@Override
 	public int getOrdre() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ordre;
 	}
 
-	@Override
 	public int getDuration() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.duration;
 	}
-
-	@Override
+	
 	public int getTaille() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.taille;
+	}
+	
+
+	public void setOrdre(int ordre) {
+		this.ordre = ordre;
 	}
 
-	@Override
+	public void setTimestamp(int timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public void setPositionX(int positionX) {
+		this.positionX = positionX;
+	}
+
+	public void setPositionY(int positionY) {
+		this.positionY = positionY;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public void setTaille(int taille) {
+		this.taille = taille;
+	}
+	
+	
 	public void addListener(IItemListener listener) {
-		// TODO Auto-generated method stub
-
+		listeners.add(listener);
 	}
-
-	@Override
+	
 	public void removeListener(IItemListener listener) {
-		// TODO Auto-generated method stub
-
+		// TODO
 	}
+	
+	private void computeTimeEllapsed(){
+		long globalTimstampCurrent = new Date().getTime();
+		timeEllapsed = (int)(globalTimstampCurrent - globalTimestampStart);
+	}
+	
+	private void itemEnded(){
+		// Ici on notifie les listeners de la fin de notre objet
+		for(int i=0;i<listeners.size();i++){
+			listeners.get(i).timeout(this);
+		}
+	}
+	
+	private Runnable watchEnd = new Runnable() {
+		public void run() {
+			itemEnded();
+		}
+	};
 
 }
