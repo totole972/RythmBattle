@@ -118,6 +118,13 @@ public class Item implements IItem {
 		// TODO
 	}
 	
+	public String toString() {
+		return "Item [timestamp=" + timestamp + ", positionX=" + positionX
+				+ ", positionY=" + positionY + ", ordre=" + ordre
+				+ ", duration=" + duration + "]";
+	}
+	
+	
 	private void computeTimeEllapsed(){
 		long globalTimstampCurrent = new Date().getTime();
 		timeEllapsed = (int)(globalTimstampCurrent - globalTimestampStart);
@@ -129,6 +136,7 @@ public class Item implements IItem {
 			listeners.get(i).timeout(this);
 		}
 	}
+	
 	
 	private Runnable watchEnd = new Runnable() {
 		public void run() {

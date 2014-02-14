@@ -2,6 +2,8 @@ package com.Game1.rythmbattle.game.implementations;
 
 import java.util.List;
 
+import android.util.Log;
+
 import com.Game1.rythmbattle.data.implementations.Score;
 import com.Game1.rythmbattle.data.interfaces.IItem;
 import com.Game1.rythmbattle.data.interfaces.IScore;
@@ -23,6 +25,8 @@ public class GameManager implements IGameManager {
 
 	public void lancerPartie(List<IItem> listItem, String audioFile) {
 
+		Log.i("game", "Game will start");
+		
 		sound.setSound(audioFile);
 		timeline.setItemList(listItem);
 
@@ -54,6 +58,8 @@ public class GameManager implements IGameManager {
 	}
 
 	private void newItemFound(IItem item) {
+		System.out.println("Item found: " + item);
+		
 		// On va s'inscrire
 		item.addListener(new IItemListener() {
 			public void timeout(IItem item) {

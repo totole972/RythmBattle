@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        /*
+        
         // Ici on simule la création d'objet et la recherche du fichier audio
         List<IItem> listItem = new ArrayList<IItem>();
         IItem item = new Item();
@@ -31,27 +31,18 @@ public class MainActivity extends Activity {
         item.setTaille(50);
         item.setOrdre(1);
         listItem.add(item);
+        
         item = new Item();
         item.setPositionX(200);
         item.setPositionY(150);
-        item.setTimestamp(1500);
+        item.setTimestamp(10000);
         item.setDuration(5000);
         item.setTaille(100);
         item.setOrdre(2);
         listItem.add(item);
-        Log.i("myTag", "Message de log");
-        System.out.println("OKKAY");
-        item.addListener(new IItemListener() {
-			
-			@Override
-			public void timeout(IItem item) {
-				System.out.println(item + " timeout");
-			}
-		});
-        item.start();
         
         new GameManager().lancerPartie(listItem, "test");
-        */
+        
         
     }
 
