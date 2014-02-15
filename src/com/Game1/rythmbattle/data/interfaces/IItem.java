@@ -27,6 +27,19 @@ public interface IItem {
     public int getDuration();
     
     public int getTaille();
+
+    
+    public void setTimestamp(int timestamp);
+    
+    public void setPositionX(int positionX);
+    
+    public void setPositionY(int positionY);
+    
+    public void setOrdre(int ordre);
+    
+    public void setDuration(int duration);
+    
+    public void setTaille(int taille);
     
 
     public void addListener(IItemListener listener);
