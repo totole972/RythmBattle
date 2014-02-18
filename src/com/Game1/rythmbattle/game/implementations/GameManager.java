@@ -2,6 +2,7 @@ package com.Game1.rythmbattle.game.implementations;
 
 import java.util.List;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.Game1.rythmbattle.data.implementations.Score;
@@ -19,13 +20,15 @@ import com.Game1.rythmbattle.listener.interfaces.ITimelineListener;
 public class GameManager implements IGameManager {
 
 	private IGraphic graphic = new Graphic();
-	private ISound sound = new Sound();
+	private ISound sound;
 	private ITimeline timeline = new Timeline();
 	private IScore score = new Score();
 
-	public void lancerPartie(List<IItem> listItem, String audioFile) {
+	public void lancerPartie(Context context, List<IItem> listItem, String audioFile) {
 
 		Log.i("game", "Game will start");
+		
+		sound = new Sound(context);
 		
 		sound.setSound(audioFile);
 		timeline.setItemList(listItem);
@@ -49,7 +52,7 @@ public class GameManager implements IGameManager {
 		});
 
 		timeline.start();
-		sound.pause();
+		sound.play();
 
 	}
 

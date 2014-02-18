@@ -17,10 +17,6 @@ public class Sound implements ISound {
 	int resourceId;
 	private List<ISoundListener> listeners = new ArrayList<ISoundListener>();
 
-	public Sound() {
-
-	}
-
 	public Sound(Context myContext) {
 		this.myContext = myContext;
 	}
@@ -38,7 +34,7 @@ public class Sound implements ISound {
 
 			@Override
 			public void onCompletion(MediaPlayer mp) {
-				// appler quand la musique est terminée
+				// appler quand la musique est terminï¿½e
 				soundEnded();
 				Log.i("Mydebug", "Music is ended");
 			}
@@ -71,7 +67,7 @@ public class Sound implements ISound {
 	}
 
 	private void soundEnded() {
-		System.out.println(" musique est terminé");
+		System.out.println(" musique est terminï¿½");
 		for (int i = 0; i < listeners.size(); i++) {
 			listeners.get(i).ended();
 		}

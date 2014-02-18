@@ -2,6 +2,8 @@ package com.Game1.rythmbattle.game.interfaces;
 
 import java.util.List;
 
+import android.content.Context;
+
 import com.Game1.rythmbattle.data.interfaces.IItem;
 
 /**
@@ -9,6 +11,6 @@ import com.Game1.rythmbattle.data.interfaces.IItem;
  */
 public interface IGameManager {
 	
-	void lancerPartie(List<IItem> listItem, String audioFile);
+	void lancerPartie(Context context, List<IItem> listItem, String audioFile);
 	
 }

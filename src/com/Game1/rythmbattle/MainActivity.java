@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
         item.setOrdre(2);
         listItem.add(item);
         
-        new GameManager().lancerPartie(listItem, "test");
+        new GameManager().lancerPartie(this, listItem, "test");
         
         
     }
