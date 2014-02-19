@@ -4,7 +4,9 @@ import java.util.List;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
 
+import com.Game1.rythmbattle.R;
 import com.Game1.rythmbattle.data.implementations.Score;
 import com.Game1.rythmbattle.data.interfaces.IItem;
 import com.Game1.rythmbattle.data.interfaces.IScore;
@@ -19,16 +21,17 @@ import com.Game1.rythmbattle.listener.interfaces.ITimelineListener;
 
 public class GameManager implements IGameManager {
 
-	private IGraphic graphic = new Graphic();
+	private Graphic graphic;
 	private ISound sound;
 	private ITimeline timeline = new Timeline();
 	private IScore score = new Score();
 
-	public void lancerPartie(Context context, List<IItem> listItem, String audioFile) {
+	public void lancerPartie(Context context, List<IItem> listItem, String audioFile, Graphic view) {
 
 		Log.i("game", "Game will start");
 		
 		sound = new Sound(context);
+		graphic = view;
 		
 		sound.setSound(audioFile);
 		timeline.setItemList(listItem);

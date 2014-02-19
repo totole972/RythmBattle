@@ -6,6 +6,7 @@ import java.util.List;
 import com.Game1.rythmbattle.data.implementations.Item;
 import com.Game1.rythmbattle.data.interfaces.IItem;
 import com.Game1.rythmbattle.game.implementations.GameManager;
+import com.Game1.rythmbattle.game.implementations.Graphic;
 import com.Game1.rythmbattle.listener.interfaces.IItemListener;
 
 import android.os.Bundle;
@@ -20,7 +21,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+       
+        setContentView(R.layout.game);
         
         /* for testing Sound Class
 		Log.e("MyApp", "this is ok 0");
@@ -51,7 +54,8 @@ public class MainActivity extends Activity {
         item.setOrdre(2);
         listItem.add(item);
         
-        new GameManager().lancerPartie(this, listItem, "test");
+        
+        new GameManager().lancerPartie(this, listItem, "music", (Graphic)findViewById(R.layout.game));
         
         
     }
