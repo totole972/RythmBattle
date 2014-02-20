@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
        
-        setContentView(R.layout.game);
+        setContentView(R.layout.activity_main);
         
         // for testing Sound Class
 		Log.e("MyApp", "this is ok 0");
